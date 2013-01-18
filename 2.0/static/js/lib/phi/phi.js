@@ -223,15 +223,12 @@
 	 * @param object {Object} the object to which the Function is bound
 	 *
 	 */
-
-	Function.prototype.bind = function(object) {
-		var b = this;
-		return function() {
-			return b.apply(object, arguments);
+	if ( !Function.prototype.bind ) {
+		Function.prototype.bind = function(object) {
+			var b = this;
+			return function() {
+				return b.apply(object, arguments);
+			};
 		};
-	};
-
-
-
-	
+	}
 })();
